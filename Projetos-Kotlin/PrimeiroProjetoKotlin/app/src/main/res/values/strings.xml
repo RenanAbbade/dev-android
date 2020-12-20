@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PrimeiroProjetoKotlin</string>
+    <string name="name">Clique no botão</string>
+    <string name="entrar">SORT</string>
+</resources>
