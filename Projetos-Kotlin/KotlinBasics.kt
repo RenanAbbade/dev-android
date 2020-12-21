@@ -48,8 +48,5 @@
     }
 
 	fun ePar(number : Int) : Boolean {
-        if(number%2 == 0){
-            return true
-        }
-        return false
+ 	return number%2 == 0
     }
