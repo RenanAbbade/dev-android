@@ -34,6 +34,13 @@ fun main(args: Array<String>) {
     println("$j ")
    }
  
+   //DO-WHILE Executa uma vez antes de verificar o valor booleano
+   var l = 0
+   do{
+       println(l)
+       l++
+   }while(l < 100)
+ 
  
 }
 
