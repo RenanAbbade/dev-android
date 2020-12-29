@@ -23,3 +23,10 @@ fun media(vararg notas: Int) : Double{
     }
     return somaNotas / notas.size
 }
+
+//Parametros genéricos
+fun <T> media(vararg notas: T) {
+    for(nota in notas){
+        println(nota)
+    }
+}
