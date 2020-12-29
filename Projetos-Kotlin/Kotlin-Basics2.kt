@@ -13,6 +13,28 @@ fun main(args: Array<String>) {
     println(operacao(10,12,"soma"))
     println(operacao(11,5,"subtração"))
     println(operacao(5,5,"multiplicacao"))
+ 
+   //FOR
+  val name = "Renan Henrique"
+   for( c in name){
+    println("$c ")
+   }
+    
+   for( i in 1..100){
+       println("$i ")
+   }
+    
+    //for in range com step
+  for( i in 1..100 step 5){
+       println("$i ")
+   }
+    
+    //for regressivo
+   for(j in 100 downTo 0){
+    println("$j ")
+   }
+ 
+ 
 }
 
 fun operacao (a: Int, b: Int, c: String) : Int{
@@ -43,6 +65,9 @@ fun valida (a: Int, b: Int){
         }
     }
 }
+
+
+
 
 
  
