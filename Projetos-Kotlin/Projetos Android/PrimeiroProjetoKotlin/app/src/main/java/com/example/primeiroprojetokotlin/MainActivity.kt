@@ -2,11 +2,8 @@ package com.example.primeiroprojetokotlin
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlin.random.Random
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -39,7 +36,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun calculate() {
 
+        if(validateOk()) {
+
+            val distancia = editDistancia.text.toString().toFloat()
+            val preco = editPreco.text.toString().toFloat()
+            val autonomia = editAutonomia.text.toString().toFloat()
+
+            val totalValue = (distancia * preco) / autonomia
+
+            editResultado.text = "R$ ${"%.2f".format(totalValue)}"
+        }
     }
 
+    //Função inline
+    private fun validateOk(): Boolean = (editDistancia.text.toString() != "" || editAutonomia.text.toString() != "" || editPreco.text.toString() != "")
 
 }

@@ -22,11 +22,13 @@
     -->
 
     <EditText
+        android:id="@+id/editDistancia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/dist_ncia"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:autofillHints="" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,11 +38,13 @@
         android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/editPreco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:hint="@string/pre_o"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:autofillHints="" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,11 +54,13 @@
         android:textSize="16sp" />
 
     <EditText
+        android:id="@+id/editAutonomia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:hint="@string/autonomia"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:autofillHints="" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -74,6 +80,7 @@
         android:textAllCaps="true" />
 
     <TextView
+        android:id="@+id/editResultado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
