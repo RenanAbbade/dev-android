@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PrimeiroProjetoKotlin</string>
+    <string name="app_name">Gasto de viagem</string>
     <string name="name">Clique no botão</string>
     <string name="entrar">SORT</string>
     <string name="dist_ncia">Distância</string>
