@@ -104,6 +104,15 @@
             android:textColor="@color/darkBlue"
             android:textSize="40sp" />
 
+        <CheckBox
+            android:id="@+id/editCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/darkBlue"
+            android:textSize="20sp"
+            android:layout_margin="16dp"
+            android:text="@string/possuo_cupom_de_desconto"/>
+
         <Button
             android:id="@+id/buttonCalculate"
             android:layout_width="match_parent"

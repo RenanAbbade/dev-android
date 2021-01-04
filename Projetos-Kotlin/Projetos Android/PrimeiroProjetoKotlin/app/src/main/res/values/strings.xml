@@ -13,4 +13,5 @@
     <string name="kms_por_litro">KMs por litro</string>
     <string name="preencha_todos_campos">Certifique-se de preencher todos os campos</string>
     <string name="informe_dados_validos">Por favor, informe valor válidos!</string>
+    <string name="possuo_cupom_de_desconto">Possuo cupom de desconto</string>
 </resources>

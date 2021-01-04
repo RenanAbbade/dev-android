@@ -46,7 +46,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val preco = editPreco.text.toString().toFloat()
                 val autonomia = editAutonomia.text.toString().toFloat()
 
-                val totalValue = (distancia * preco) / autonomia
+                var totalValue = (distancia * preco) / autonomia
+
+                if(editCheck.isChecked){
+                    totalValue = (totalValue - totalValue * 0.10).toFloat() //discount of 10%
+                }
 
                 editResultado.text = "R$ ${"%.2f".format(totalValue)}"
 
