@@ -3,7 +3,9 @@ package com.example.primeiroprojetokotlin
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.NumberFormatException
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -36,19 +38,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun calculate() {
 
-        if(validateOk()) {
+        if (validateOk()) {
 
-            val distancia = editDistancia.text.toString().toFloat()
-            val preco = editPreco.text.toString().toFloat()
-            val autonomia = editAutonomia.text.toString().toFloat()
+            try {
 
-            val totalValue = (distancia * preco) / autonomia
+                val distancia = editDistancia.text.toString().toFloat()
+                val preco = editPreco.text.toString().toFloat()
+                val autonomia = editAutonomia.text.toString().toFloat()
 
-            editResultado.text = "R$ ${"%.2f".format(totalValue)}"
+                val totalValue = (distancia * preco) / autonomia
+
+                editResultado.text = "R$ ${"%.2f".format(totalValue)}"
+
+            } catch (nfe: NumberFormatException) {
+                Toast.makeText(this, getString(R.string.informe_dados_validos), Toast.LENGTH_LONG)
+            }
+        } else {
+            //Criando notificação para informar os campos invalidas, passa-se applicationContext ou this se estamos falando da propria Activity, sequencia de String, tempo em que a msg é apresentada na tela
+            Toast.makeText(this, getString(R.string.preencha_todos_campos), Toast.LENGTH_LONG)
+                .show()
         }
     }
 
     //Função inline
-    private fun validateOk(): Boolean = (editDistancia.text.toString() != "" || editAutonomia.text.toString() != "" || editPreco.text.toString() != "")
+    private fun validateOk(): Boolean =
+        (editDistancia.text.toString() != "" && editAutonomia.text.toString() != "" && editPreco.text.toString() != "" && editAutonomia.text.toString() != "0")
 
 }
