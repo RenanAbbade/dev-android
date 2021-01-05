@@ -10,7 +10,12 @@ class SecurityPreferences(context: Context) {
         mSharedPreferences.edit().putString(key, value)
     }
 
-    fun getString(key: String){
+    fun getString(key: String) : String{
+        //getString do SharedPreferences, deve possuir um default value, caso seja requerido o valor de uma variavel null
+        //Utilizando o recurso do Kotlin, elvis operator -> ?: que basicamente faz a seguinte lógica: Se não for null, use-o, se for use o valor após o "?:"
+        return mSharedPreferences.getString(key,"") ?: ""
 
     }
+
+    //O SharedPreferences possui diversos metodos de storege referente a diveferentes tipos, além de String, como putBoolean, putInt, se precisar colocar outros, basta copiar os de String e modificar o put.
 }
