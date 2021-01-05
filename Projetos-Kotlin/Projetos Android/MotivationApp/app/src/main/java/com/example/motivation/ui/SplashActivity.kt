@@ -18,16 +18,27 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        //Implementação do SharedPreferences
-        mSecurityPreferences = SecurityPreferences(this)
-
         //Retirando barra de navegação da tela
         if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
 
+        //Implementação do SharedPreferences
+        mSecurityPreferences = SecurityPreferences(this)
+
         buttonSave.setOnClickListener(this)
 
+        //Com essa function, verifico se já existe um usuário já logado na session
+        verifyName()
+
+    }
+
+    private fun verifyName() {
+        val name = mSecurityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
+        if (!name.isBlank()){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onClick(view: View?) {

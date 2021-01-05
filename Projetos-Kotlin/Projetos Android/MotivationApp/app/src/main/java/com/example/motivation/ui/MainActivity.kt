@@ -24,7 +24,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         mSecurityPreferences = SecurityPreferences(this)
 
-        textName.text = mSecurityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
+        val name  = mSecurityPreferences.getString(MotivationConstants.KEY.PERSON_NAME)
+
+        textName.text = "Olá, $name"
 
         //Lógica inicial de seleção
         imageAll.setColorFilter(resources.getColor(R.color.colorAccent))//A imagem clicada deverá mudar de cor, para ser destacada como current
