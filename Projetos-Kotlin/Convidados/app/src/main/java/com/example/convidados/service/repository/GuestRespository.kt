@@ -78,7 +78,19 @@ class GuestRespository private constructor(context: Context) {
 
     }
 
-    fun delete(guest: GuestModel) {
+    fun delete(id: Int) : Boolean {
+        return try {
+            val db = mGuestDataBaseHelper.writableDatabase //Atualização
+
+            //A lógica do deletedeverá ser baseada na coluna ID, o ? será substituido pela val args que incorpora o Id do usuário
+            val selection = DataBaseConstants.GUEST.COLUMNS.ID + " =?"
+            val args = arrayOf(id.toString())
+
+            db.delete(DataBaseConstants.GUEST.TABLE_NAME,  selection, args)
+            true
+        } catch (e: Exception) {
+            false
+        }
 
     }
 }
