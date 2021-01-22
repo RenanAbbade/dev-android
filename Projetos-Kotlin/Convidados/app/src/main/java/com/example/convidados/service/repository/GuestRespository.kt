@@ -25,6 +25,42 @@ class GuestRespository private constructor(context: Context) {
         }
     }
 
+    fun get(id: Int) : GuestModel?{
+
+        var guest: GuestModel? = null
+
+        return try {
+            val db = mGuestDataBaseHelper.readableDatabase
+
+            /**
+             * Outra forma mais enxuta de fazer a consulta, seria utilizando o método rawQuery, porém é menos seguro:
+             *  db.rawQuery("select * from Guest where id = $id, null)
+             *  passa-se como primeiro arg a consulta SQL, e como segundo o criterio de seleção, no caso null
+             **/
+
+            val projection = arrayOf(DataBaseConstants.GUEST.COLUMNS.NAME, DataBaseConstants.GUEST.COLUMNS.PRESENCE)
+
+            val selection = DataBaseConstants.GUEST.COLUMNS.ID + " =?"
+            val args = arrayOf(id.toString())
+
+            val cursor = db.query(DataBaseConstants.GUEST.TABLE_NAME, projection, selection, args, null, null, null)
+
+            if(cursor != null && cursor.count > 0){
+                cursor.moveToFirst()
+                val name = cursor.getString(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.NAME))
+                val presence = (cursor.getInt(cursor.getColumnIndex(DataBaseConstants.GUEST.COLUMNS.PRESENCE)) == 1) //Bool
+
+                guest = GuestModel(id, name, presence)
+            }
+
+            cursor.close()
+            guest
+        } catch (e: Exception) {
+            guest
+        }
+
+    }
+
     //CRUD
     fun save(guest: GuestModel): Boolean {
 
