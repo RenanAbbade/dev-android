@@ -37,7 +37,7 @@ class GuestRespository private constructor(context: Context) {
 
             db.insert(DataBaseConstants.GUEST.TABLE_NAME, null, contentValues)
             true
-        }catch (e: Exception){
+        } catch (e: Exception) {
             false
         }
     }
@@ -58,7 +58,23 @@ class GuestRespository private constructor(context: Context) {
     }
 
 
-    fun update(guest: GuestModel) {
+    fun update(guest: GuestModel): Boolean {
+        return try {
+            val db = mGuestDataBaseHelper.writableDatabase //Atualização
+
+            val contentValues = ContentValues()
+            contentValues.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
+            contentValues.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, guest.presense)
+
+            //A lógica do update(critério de atualização) deverá ser baseada na coluna ID, o ? será substituido pela val args que incorpora o Id do usuário
+            val selection = DataBaseConstants.GUEST.COLUMNS.ID + " =?"
+            val args = arrayOf(guest.id.toString())
+
+            db.update(DataBaseConstants.GUEST.TABLE_NAME, contentValues, selection, args)
+            true
+        } catch (e: Exception) {
+            false
+        }
 
     }
 
