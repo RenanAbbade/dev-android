@@ -15,4 +15,8 @@
     <string name="munu_all">Todos</string>
     <string name="menu_presents">Presents</string>
     <string name="menu_abscents">Abscents</string>
+    <string name="nome">Nome:</string>
+    <string name="presente">Presente</string>
+    <string name="ausente">Ausente</string>
+    <string name="salvar">Salvar</string>
 </resources>

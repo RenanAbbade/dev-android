@@ -1,4 +1,4 @@
-package com.example.convidados.ui.slideshow
+package com.example.convidados.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,21 +9,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.convidados.R
+import com.example.convidados.viewModel.AllGuestsViewModel
 
-class AbscentFragment : Fragment() {
+class AllGuestsFragment : Fragment() {
 
-    private lateinit var abscentViewModel: AbscentViewModel
+    private lateinit var allGuestsViewModel: AllGuestsViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        abscentViewModel =
-                ViewModelProviders.of(this).get(AbscentViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_slideshow, container, false)
-        val textView: TextView = root.findViewById(R.id.text_slideshow)
-        abscentViewModel.text.observe(viewLifecycleOwner, Observer {
+        allGuestsViewModel =
+                ViewModelProviders.of(this).get(AllGuestsViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        allGuestsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
